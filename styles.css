@@ -519,3 +519,528 @@ footer {
   overflow: hidden;
   transition: all var(--transition);
 }
+
+/* ============================================================
+   MOBILE FIX — prevents all horizontal overflow & wobble
+   ============================================================ */
+
+/* 1. Hard-stop any horizontal scroll on every element */
+html, body {
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* 2. All containers must not exceed viewport */
+*, *::before, *::after {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* 3. Lock the page container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* 4. Nav inner must not overflow */
+.nav-inner {
+  max-width: 1280px;
+  width: 100%;
+  padding: 0 1rem;
+  overflow: visible;
+}
+
+/* 5. Fix hero content padding on mobile (6vw causes issues) */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 1.5rem !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .hero-title {
+    font-size: clamp(1.6rem, 6vw, 2.4rem) !important;
+  }
+  .hero-sub {
+    font-size: 0.92rem !important;
+    max-width: 100% !important;
+  }
+  .hero-btns {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+  }
+  .hero-btns a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* 6. Stats grid mobile */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .stat-divider { display: none !important; }
+  .stat-item { padding: 0.75rem 0.5rem !important; }
+  .stat-item .num { font-size: 1.8rem !important; }
+}
+
+/* 7. Services grid mobile */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}
+
+/* 8. Why-us layout mobile */
+@media (max-width: 900px) {
+  .why-us-layout {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .why-us-img img {
+    height: 260px !important;
+  }
+}
+
+/* 9. Equipment strip mobile */
+@media (max-width: 768px) {
+  .equipment-strip {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+  }
+}
+@media (max-width: 480px) {
+  .equipment-strip {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 10. Techniques grid mobile */
+@media (max-width: 768px) {
+  .techniques-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+}
+
+/* 11. Footer grid mobile */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 0.5rem !important;
+  }
+}
+
+/* 12. Sections padding on mobile */
+@media (max-width: 768px) {
+  .section { padding: 3rem 1rem !important; }
+  .section-header { margin-bottom: 2rem !important; }
+  .section-title { font-size: clamp(1.5rem, 5vw, 2rem) !important; }
+  .cta-section { padding: 3.5rem 1rem !important; }
+  .cta-section h2 { font-size: 1.6rem !important; }
+  .cta-btns {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+}
+
+/* 13. Page hero mobile */
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 7rem 1.25rem 3rem !important;
+  }
+  .page-hero h1 { font-size: clamp(1.6rem, 6vw, 2.2rem) !important; }
+}
+
+/* 14. Stat cards grid on about page */
+@media (max-width: 768px) {
+  div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .stat-card { padding: 1.5rem 1rem !important; }
+  .stat-number { font-size: 2.2rem !important; }
+}
+
+/* 15. About intro mobile */
+@media (max-width: 900px) {
+  .about-intro {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .about-values {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+@media (max-width: 540px) {
+  .about-values {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 16. Doctor cards mobile */
+@media (max-width: 900px) {
+  .doctors-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 17. Therapy items (alternating layout) mobile */
+@media (max-width: 900px) {
+  .therapy-item,
+  .therapy-item.reverse {
+    grid-template-columns: 1fr !important;
+    direction: ltr !important;
+    gap: 1.5rem !important;
+  }
+  .therapy-img img {
+    height: auto !important;
+    max-height: 280px !important;
+  }
+}
+
+/* 18. Services full grid mobile */
+@media (max-width: 768px) {
+  .services-full-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .rehab-highlight {
+    grid-template-columns: 1fr !important;
+  }
+  .rehab-highlight-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+}
+
+/* 19. Contact layout mobile */
+@media (max-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+  .contact-form-wrap { padding: 1.75rem 1.25rem !important; }
+  .map-wrap { height: 280px !important; }
+}
+
+/* 20. Testimonials & video grid mobile */
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .rating-summary {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 1.75rem 1.25rem !important;
+  }
+  .video-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .trust-bar-inner {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.25rem !important;
+  }
+}
+
+/* 21. Trust bar mobile */
+@media (max-width: 768px) {
+  .trust-bar { padding: 1.75rem 1rem !important; }
+  .trust-item .num { font-size: 1.8rem !important; }
+}
+
+/* 22. Counter number — prevent layout shift */
+[data-target] {
+  display: inline-block;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 23. Prevent any transforms from creating horizontal scroll */
+.fade-up {
+  will-change: opacity, transform;
+  transform: translateY(28px);
+}
+.fade-up.visible {
+  transform: translateY(0) !important;
+  will-change: auto;
+}
+
+/* 24. Images never overflow */
+img {
+  max-width: 100% !important;
+  height: auto;
+}
+iframe {
+  max-width: 100% !important;
+}
+
+/* 25. Mobile menu full width */
+@media (max-width: 768px) {
+  .mobile-menu {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    padding: 1.25rem 1rem !important;
+  }
+}
+
+
+/* ============================================================
+   COMPREHENSIVE MOBILE FIX v2 — March 2026
+   Fixes: right-side overflow, counter wobble, all grids
+   ============================================================ */
+
+/* === ROOT OVERFLOW LOCK === */
+html {
+  overflow-x: hidden !important;
+  width: 100%;
+}
+body {
+  overflow-x: hidden !important;
+  width: 100%;
+  position: relative;
+}
+
+/* === EVERY ELEMENT CONSTRAINED === */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* === SECTIONS NEVER OVERFLOW === */
+section, .section, .stats-banner, .trust-bar,
+.page-hero, footer, .navbar, .cta-section {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* === CONTAINER ALWAYS FULL-WIDTH SAFE === */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+/* === NAV INNER SAFE === */
+.nav-inner {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  max-width: 1280px;
+}
+
+/* === COUNTER WOBBLE FIX ===
+   Use tabular-nums + fixed min-width so layout never shifts
+   when digits change from 0 → 5000+ */
+[data-target] {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  white-space: nowrap;
+  min-width: 2ch;
+  text-align: right;
+}
+.stat-item .num,
+.stat-card .stat-number,
+.trust-item .num {
+  min-height: 1.2em;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* === FADE-UP — use translateY only, never X, clamp height ===
+   translateY is safe — it does NOT cause horizontal scroll.
+   The wobble was from layout reflow during counter. Now fixed. */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1),
+              transform 0.65s cubic-bezier(0.4,0,0.2,1);
+  will-change: opacity, transform;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+/* === VIDEO AUTOPLAY FIX ===
+   Ensure hero video fills and doesn't cause layout issues */
+.hero {
+  width: 100%;
+  overflow: hidden;
+}
+.hero-video {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* === MOBILE BREAKPOINTS === */
+@media (max-width: 768px) {
+
+  /* Navbar */
+  .nav-inner {
+    padding: 0 0.875rem;
+  }
+  .nav-logo-img {
+    height: 40px;
+  }
+
+  /* Hero */
+  .hero {
+    height: 100svh;
+    min-height: 500px;
+  }
+  .hero-content {
+    padding: 1.25rem !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .hero-title {
+    font-size: clamp(1.55rem, 7vw, 2.2rem) !important;
+    line-height: 1.2 !important;
+  }
+  .hero-sub {
+    font-size: 0.9rem !important;
+    max-width: 100% !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .hero-btns {
+    flex-direction: column !important;
+    gap: 0.65rem !important;
+    align-items: flex-start !important;
+  }
+  .hero-btns a {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* Stats banner */
+  .stats-banner { padding: 1.75rem 1rem; }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem !important;
+    max-width: 100%;
+  }
+  .stat-item { padding: 0.75rem 0.5rem !important; }
+  .stat-item .num { font-size: 1.75rem !important; }
+  .stat-divider { display: none !important; }
+
+  /* Sections */
+  .section { padding: 2.75rem 1rem !important; }
+  .section-header { margin-bottom: 1.75rem !important; }
+  .section-title { font-size: clamp(1.4rem, 5.5vw, 1.9rem) !important; }
+  .section-sub { font-size: 0.9rem !important; }
+
+  /* Services grid */
+  .services-grid { grid-template-columns: 1fr !important; gap: 0.875rem !important; }
+
+  /* Why-us */
+  .why-us-layout { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .why-us-img img { height: 240px !important; }
+  .why-us-img-badge { display: none; }
+
+  /* Equipment strip */
+  .equipment-strip { grid-template-columns: 1fr 1fr !important; gap: 0.875rem !important; }
+  .equip-card img { height: 140px !important; }
+
+  /* Techniques grid */
+  .techniques-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+  .technique-img-wrap { height: 160px !important; }
+
+  /* CTA section */
+  .cta-section { padding: 3rem 1rem !important; }
+  .cta-section h2 { font-size: 1.5rem !important; }
+  .cta-btns {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.65rem !important;
+  }
+  .cta-btns a { width: 100% !important; justify-content: center !important; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  footer { padding: 2.5rem 1rem 1.5rem !important; }
+  .footer-bottom {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 0.4rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Page hero */
+  .page-hero { padding: 6.5rem 1rem 2.5rem !important; }
+  .page-hero h1 { font-size: clamp(1.5rem, 6.5vw, 2.2rem) !important; }
+  .page-hero p { font-size: 0.9rem !important; }
+
+  /* Mobile menu */
+  .mobile-menu {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 1.25rem 1rem !important;
+  }
+
+  /* Buttons on mobile */
+  .btn-primary, .btn-outline, .btn-white, .btn-book {
+    font-size: 0.875rem !important;
+    padding: 0.75rem 1.5rem !important;
+  }
+
+  /* Images */
+  img { max-width: 100% !important; height: auto; }
+  iframe { max-width: 100% !important; }
+}
+
+@media (max-width: 480px) {
+  .equipment-strip { grid-template-columns: 1fr !important; }
+  .stats-grid { gap: 0.5rem !important; }
+}
+
+/* Prevent hover transforms on touch devices (they cause jitter) */
+@media (hover: none) {
+  .service-card:hover,
+  .why-feature:hover,
+  .equip-card:hover,
+  .technique-card:hover,
+  .stat-card:hover,
+  .video-card:hover,
+  .doctor-card:hover,
+  .value-card:hover,
+  .service-full-card:hover,
+  .therapy-item:hover .therapy-img img,
+  .doctor-card:hover .doctor-img-wrap img {
+    transform: none !important;
+    box-shadow: var(--shadow) !important;
+  }
+}
