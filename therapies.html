@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Treatments & Therapies | Restore Physiotherapy Clinic Indore</title>
+  <meta name="description" content="Advanced physiotherapy therapies in Indore — Class IV Laser, Tecar Therapy, Shockwave, Robotic Spinal Decompression, Super Inductive System, Combination Therapy, I-Combo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* THERAPIES PAGE */
+    .therapy-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .therapy-item:last-child { border-bottom: none; }
+    .therapy-item.reverse { direction: rtl; }
+    .therapy-item.reverse > * { direction: ltr; }
+
+    .therapy-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+      background: var(--bg-alt);
+    }
+    .therapy-img img {
+      width: 100%;
+      height: 380px;
+      object-fit: contain;
+      background: var(--bg-alt);
+      padding: 2rem;
+      transition: transform 0.6s ease;
+    }
+    .therapy-item:hover .therapy-img img { transform: scale(1.04); }
+
+    .therapy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      background: rgba(47,109,143,0.1);
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .therapy-content h2 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .therapy-content p {
+      font-size: 0.93rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+    .therapy-benefits { list-style: none; margin-bottom: 1.5rem; }
+    .therapy-benefits li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .therapy-benefits li::before {
+      content: '';
+      width: 20px; height: 20px;
+      background: rgba(47,109,143,0.1);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 2px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F6D8F' stroke-width='2.5'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-size: 12px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .therapy-conditions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .therapy-conditions span {
+      padding: 0.3rem 0.8rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Quick nav pills */
+    .therapy-nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 72px;
+      z-index: 100;
+    }
+    .therapy-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .therapy-nav-inner::-webkit-scrollbar { display: none; }
+    .therapy-nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+    .therapy-nav-pill:hover {
+      background: rgba(47,109,143,0.1);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    @media (max-width: 900px) {
+      .therapy-item,
+      .therapy-item.reverse { grid-template-columns: 1fr; direction: ltr; gap: 2rem; }
+      .therapy-img img { height: 280px; }
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, #1a4a65 100%);
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 300px; height: 300px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: white;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      position: relative; z-index: 1;
+    }
+    .cta-section p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      position: relative; z-index: 1;
+    }
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: white;
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: all var(--transition);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+
+    @media (max-width: 900px) {
+      .why-us-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .equipment-strip { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-divider { display: none; }
+    }
+    @media (max-width: 500px) {
+      .equipment-strip { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="" data-img="logo" alt="Restore Physiotherapy Clinic Logo" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="therapies.html" class="active">Treatments &amp; Therapies</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/919827264780?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Restore%20Physiotherapy%20Clinic." target="_blank" rel="noopener" class="btn-book">Book Appointment</a>
+      <button class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="therapies.html">Treatments &amp; Therapies</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/919827264780?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Restore%20Physiotherapy%20Clinic." target="_blank" rel="noopener" class="btn-book">Book Appointment</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> Treatments &amp; Therapies</div>
+    <h1>Advanced Therapy Equipment<br/>for Superior Recovery</h1>
+    <p>We invest in the world's most advanced physiotherapy technology — delivering treatment outcomes that outperform conventional methods.</p>
+  </div>
+
+  <!-- QUICK NAV -->
+  <div class="therapy-nav">
+    <div class="therapy-nav-inner">
+      <a href="#super-inductive" class="therapy-nav-pill">Super Inductive System</a>
+      <a href="#shockwave" class="therapy-nav-pill">Shockwave Therapy</a>
+      <a href="#robotic" class="therapy-nav-pill">Robotic Decompression</a>
+      <a href="#combo" class="therapy-nav-pill">Combination Therapy</a>
+      <a href="#laser" class="therapy-nav-pill">Class IV Laser</a>
+      <a href="#tecar" class="therapy-nav-pill">Tecar Therapy</a>
+      <a href="#icombo" class="therapy-nav-pill">I-Combo Machine</a>
+    </div>
+  </div>
+
+  <!-- THERAPIES -->
+  <section class="section section-alt">
+    <div class="container">
+
+      <!-- 1. Super Inductive System -->
+      <div id="super-inductive" class="therapy-item fade-up">
+        <div class="therapy-img">
+          <img src="" data-img="super_inductive" alt="Super Inductive System - Inductura High Energy Inductive Therapy Indore" loading="lazy" />
+        </div>
+        <div class="therapy-content">
+          <div class="therapy-badge">Machine 01</div>
+          <h2>Super Inductive System</h2>
+          <p>The Super Inductive System (SIS) uses high-intensity electromagnetic fields to stimulate muscle contraction, modulate pain, and promote neuromuscular re-education. It is one of the most powerful non-invasive therapy modalities available in physiotherapy.</p>
+          <p>The Inductura High Energy Inductive System generates precise electromagnetic pulses that penetrate deeply into tissues, making it highly effective for acute and chronic pain conditions.</p>
+          <ul class="therapy-benefits">
+            <li>Powerful pain modulation without direct skin contact</li>
+            <li>Stimulates involuntary muscle contractions for strengthening</li>
+            <li>Accelerates bone fracture healing</li>
+            <li>Effective for spasticity reduction in neuro patients</li>
+          </ul>
+          <div class="therapy-conditions">
+            <span>Chronic Pain</span><span>Muscle Weakness</span><span>Spasticity</span><span>Fracture Healing</span><span>Neuro Rehab</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Shockwave -->
+      <div id="shockwave" class="therapy-item reverse fade-up">
+        <div class="therapy-img">
+          <img src="" data-img="shockwave" alt="Shockwave Therapy Machine - Pro 1000 Indore" loading="lazy" />
+        </div>
+        <div class="therapy-content">
+          <div class="therapy-badge">Machine 02</div>
+          <h2>Shockwave Therapy</h2>
+          <p>Extracorporeal Shockwave Therapy (ESWT) uses high-energy acoustic waves to break down calcifications, stimulate tissue healing, and provide powerful pain relief for chronic conditions. Our Shockwave Pro-1000 delivers focused acoustic energy with precision.</p>
+          <p>This is particularly effective for conditions that haven't responded to conventional physiotherapy, making it an excellent option for chronic tendinopathies and plantar fasciitis.</p>
+          <ul class="therapy-benefits">
+            <li>Breaks up calcium deposits in tendons</li>
+            <li>Stimulates new blood vessel formation</li>
+            <li>Long-lasting pain relief — often after just 3–5 sessions</li>
+            <li>Effective for chronic conditions unresponsive to other therapy</li>
+          </ul>
+          <div class="therapy-conditions">
+            <span>Plantar Fasciitis</span><span>Tennis Elbow</span><span>Calcific Tendinitis</span><span>Achilles Tendinopathy</span><span>Shoulder Pain</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Robotic Spinal Decompression -->
+      <div id="robotic" class="therapy-item fade-up">
+        <div class="therapy-img">
+          <img src="" data-img="robotic" alt="Robotic Spinal Decompression Machine Indore" loading="lazy" />
+        </div>
+        <div class="therapy-content">
+          <div class="therapy-badge">Machine 03</div>
+          <h2>Robotic Spinal Decompression</h2>
+          <p>Computer-controlled spinal decompression therapy precisely relieves intradiscal pressure, reducing pain from disc herniations, nerve compressions, and degenerative disc disease. This is a highly specialised treatment that was previously only available in major metropolitan hospitals.</p>
+          <p>The robotic system adjusts in real time based on patient feedback, ensuring maximum therapeutic benefit while maintaining complete safety and comfort throughout the session.</p>
+          <ul class="therapy-benefits">
+            <li>Reduces intradiscal pressure to promote disc rehydration</li>
+            <li>Computer-controlled precision for maximum safety</li>
+            <li>Non-surgical alternative for disc herniation</li>
+            <li>Effective for both cervical and lumbar conditions</li>
+          </ul>
+          <div class="therapy-conditions">
+            <span>Disc Herniation</span><span>PIVD</span><span>Sciatica</span><span>Cervical Radiculopathy</span><span>Degenerative Disc</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Combination Therapy -->
+      <div id="combo" class="therapy-item reverse fade-up">
+        <div class="therapy-img">
+          <img src="" data-img="combo" alt="Combination Therapy Machine - Ultrasound and TENS Indore" loading="lazy" />
+        </div>
+        <div class="therapy-content">
+          <div class="therapy-badge">Machine 04</div>
+          <h2>Combination Therapy</h2>
+          <p>Combination therapy simultaneously applies ultrasound and electrical stimulation (TENS/IFT) to targeted areas, producing synergistic therapeutic effects that are significantly greater than either modality used alone.</p>
+          <p>This approach is particularly effective for acute injuries, inflammation management, and conditions requiring both deep tissue treatment and pain relief simultaneously.</p>
+          <ul class="therapy-benefits">
+            <li>Simultaneous ultrasound and electrical stimulation</li>
+            <li>Superior anti-inflammatory effects</li>
+            <li>Accelerates soft tissue healing</li>
+            <li>Reduces muscle spasm and relieves pain rapidly</li>
+          </ul>
+          <div class="therapy-conditions">
+            <span>Soft Tissue Injuries</span><span>Inflammation</span><span>Muscle Spasm</span><span>Joint Pain</span><span>Sports Injuries</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Class IV Laser -->
+      <div id="laser" class="therapy-item fade-up">
+        <div class="therapy-img">
+          <img src="" data-img="laser" alt="Class IV Laser Therapy - Photon Biotech Indore" loading="lazy" />
+        </div>
+        <div class="therapy-content">
+          <div class="therapy-badge">Machine 05</div>
+          <h2>Class IV Laser Therapy</h2>
+          <p>The Photon Class IV Laser delivers therapeutic laser energy deep into tissue — stimulating cellular repair processes, reducing inflammation, and providing powerful pain relief through photobiomodulation. Class IV lasers are more powerful than standard cold lasers, enabling treatment of deep-seated conditions.</p>
+          <p>Photobiomodulation triggers mitochondrial activity, accelerating ATP production and enhancing the body's natural healing mechanisms at a cellular level.</p>
+          <ul class="therapy-benefits">
+            <li>Deep tissue penetration for greater therapeutic effect</li>
+            <li>Accelerates wound and tissue healing</li>
+            <li>Powerful anti-inflammatory action</li>
+            <li>Effective for neuropathy and nerve regeneration</li>
+          </ul>
+          <div class="therapy-conditions">
+            <span>Neuropathy</span><span>Wound Healing</span><span>Arthritis</span><span>Disc Conditions</span><span>Nerve Injuries</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Tecar -->
+      <div id="tecar" class="therapy-item reverse fade-up">
+        <div class="therapy-img">
+          <img src="" data-img="tecar" alt="I-Tecar Therapy Machine Biotech Indore" loading="lazy" />
+        </div>
+        <div class="therapy-content">
+          <div class="therapy-badge">Machine 06</div>
+          <h2>Tecar Therapy (I-Tecar)</h2>
+          <p>Tecar (Transfer of Energy Capacitive and Resistive) therapy uses radiofrequency energy to generate heat within deep tissues, stimulating metabolic activity, increasing local blood circulation, and promoting rapid recovery. The Biotech I-Tecar is the gold standard for this modality.</p>
+          <p>Tecar therapy works both in capacitive mode (for superficial and muscle tissue) and resistive mode (for deep structures like ligaments, tendons, and bone) — making it remarkably versatile.</p>
+          <ul class="therapy-benefits">
+            <li>Deep thermal and athermal effects for rapid recovery</li>
+            <li>Stimulates tissue metabolism and oxygenation</li>
+            <li>Effective for both acute injuries and chronic conditions</li>
+            <li>Reduces recovery time significantly post-sport</li>
+          </ul>
+          <div class="therapy-conditions">
+            <span>Sports Injuries</span><span>Tendinopathy</span><span>Muscle Recovery</span><span>Arthritis</span><span>Chronic Pain</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. I-Combo -->
+      <div id="icombo" class="therapy-item fade-up">
+        <div class="therapy-img">
+          <img src="" data-img="icombo" alt="I-Combo 4 Machine Biotech Indore" loading="lazy" />
+        </div>
+        <div class="therapy-content">
+          <div class="therapy-badge">Machine 07</div>
+          <h2>I-Combo Machine</h2>
+          <p>The Biotech I-Combo 4 is a versatile combination physiotherapy unit that integrates multiple therapy modalities into a single compact device. It combines therapeutic ultrasound with various electrotherapy options, allowing for tailored multi-modal treatment protocols.</p>
+          <p>The intuitive touchscreen interface and anatomical guide make treatment selection precise and efficient — ideal for outpatient physiotherapy settings where a wide range of conditions need to be addressed.</p>
+          <ul class="therapy-benefits">
+            <li>Multiple modalities in one compact unit</li>
+            <li>Ultrasound + electrotherapy combination capability</li>
+            <li>Precise anatomical treatment programming</li>
+            <li>Ideal for personalised multi-modal protocols</li>
+          </ul>
+          <div class="therapy-conditions">
+            <span>General Physiotherapy</span><span>Pain Management</span><span>Tissue Healing</span><span>Muscle Conditions</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2 class="fade-up">Experience the Power of Advanced Therapy</h2>
+    <p class="fade-up fade-up-delay-1">Book a consultation to find out which advanced therapy is most suitable for your condition.</p>
+    <div class="cta-btns fade-up fade-up-delay-2">
+      <a href="https://wa.me/919827264780?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Restore%20Physiotherapy%20Clinic." target="_blank" rel="noopener" class="btn-white">Book Appointment</a>
+      <a href="tel:09827264780" class="btn-outline">Call: 098272 64780</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo"><img src="" data-img="logo" alt="Restore Physiotherapy Clinic" class="footer-logo-img" /></div>
+          <p class="footer-tagline">Indore's most technologically advanced physiotherapy clinic — delivering superior outcomes through expert care and cutting-edge equipment.</p>
+          <div style="margin-top:1.5rem; display:flex; gap:0.75rem;">
+            <a href="https://www.facebook.com/p/Restore-Physiotherapy-Clinic-100069714570958/" style="width:36px;height:36px;background:rgba(47,109,143,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--primary);transition:background 0.3s;" onmouseover="this.style.background='rgba(47,109,143,0.2)'" onmouseout="this.style.background='rgba(47,109,143,0.1)'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/restore_physiotherapy_clinic_/" style="width:36px;height:36px;background:rgba(47,109,143,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--primary);transition:background 0.3s;" onmouseover="this.style.background='rgba(47,109,143,0.2)'" onmouseout="this.style.background='rgba(47,109,143,0.1)'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="therapies.html">Treatments &amp; Therapies</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Our Therapies</h4>
+          <ul class="footer-links">
+            <li><a href="#super-inductive">Super Inductive System</a></li>
+            <li><a href="#shockwave">Shockwave Therapy</a></li>
+            <li><a href="#robotic">Robotic Decompression</a></li>
+            <li><a href="#laser">Class IV Laser</a></li>
+            <li><a href="#tecar">Tecar Therapy</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Nipania, Indore MP 452010</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 010 1.17 2 2 0 012 0h3a2 2 0 012 1.72 12.05 12.05 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.85a16 16 0 006.15 6.15l1.27-1.27a2 2 0 012.11-.45 12.05 12.05 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <span>098272 64780</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Restore Physiotherapy Clinic. All rights reserved.</span>
+        <span>Advanced Physiotherapy Indore | Sports Injury Rehab Indore</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="images.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

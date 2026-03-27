@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Restore Physiotherapy Clinic Indore</title>
+  <meta name="description" content="Meet the expert team at Restore Physiotherapy Clinic, Indore. Dr. Rajkumari Mishra and Dr. Rahul Mishra bring 20+ years of combined physiotherapy expertise." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ABOUT PAGE */
+    .about-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-intro-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+    }
+    .about-intro-img img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+    .about-values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+    .value-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      text-align: center;
+      transition: all var(--transition);
+    }
+    .value-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+    .value-icon {
+      width: 60px; height: 60px;
+      background: rgba(47,109,143,0.1);
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+    .value-icon svg { width: 28px; height: 28px; color: var(--primary); }
+    .value-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .value-card p { font-size: 0.88rem; color: var(--text-muted); }
+
+    /* DOCTORS */
+    .doctors-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .doctor-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+    .doctor-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+    .doctor-img-wrap {
+      position: relative;
+      height: 340px;
+      background: var(--bg-alt);
+      overflow: hidden;
+    }
+    .doctor-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.6s ease;
+    }
+    .doctor-card:hover .doctor-img-wrap img { transform: scale(1.04); }
+    .doctor-img-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 60%;
+      background: linear-gradient(to top, rgba(47,109,143,0.85), transparent);
+    }
+    .doctor-info { padding: 1.75rem 2rem; }
+    .doctor-info h3 { font-size: 1.35rem; font-weight: 800; margin-bottom: 0.35rem; }
+    .doctor-degrees { font-size: 0.85rem; color: var(--primary); font-weight: 600; margin-bottom: 0.25rem; }
+    .doctor-exp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.85rem;
+      background: rgba(47,109,143,0.1);
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .doctor-specialties { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .doctor-specialties span {
+      padding: 0.3rem 0.75rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* PLACEHOLDER CARD for Dr. Rajkumari */
+    .doctor-img-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--bg-alt) 0%, #d0e8f5 100%);
+    }
+    .doctor-img-placeholder svg { width: 120px; height: 120px; color: var(--soft-blue); }
+
+    .timeline { margin-top: 2rem; }
+    .timeline-item {
+      display: flex;
+      gap: 1.5rem;
+      padding-bottom: 2rem;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 20px; top: 40px;
+      width: 1px;
+      height: calc(100% - 20px);
+      background: var(--border);
+    }
+    .timeline-item:last-child::before { display: none; }
+    .timeline-dot {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: rgba(47,109,143,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; z-index: 1;
+    }
+    .timeline-dot svg { width: 18px; height: 18px; color: var(--primary); }
+    .timeline-body h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .timeline-body p { font-size: 0.88rem; color: var(--text-muted); }
+
+    @media (max-width: 900px) {
+      .about-intro { grid-template-columns: 1fr; gap: 2.5rem; }
+      .doctors-grid { grid-template-columns: 1fr; }
+      .about-values { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 540px) {
+      .about-values { grid-template-columns: 1fr; }
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, #1a4a65 100%);
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 300px; height: 300px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: white;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      position: relative; z-index: 1;
+    }
+    .cta-section p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      position: relative; z-index: 1;
+    }
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: white;
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: all var(--transition);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+
+    @media (max-width: 900px) {
+      .why-us-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .equipment-strip { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-divider { display: none; }
+    }
+    @media (max-width: 500px) {
+      .equipment-strip { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="" data-img="logo" alt="Restore Physiotherapy Clinic Logo" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="therapies.html">Treatments &amp; Therapies</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/919827264780?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Restore%20Physiotherapy%20Clinic." target="_blank" rel="noopener" class="btn-book">Book Appointment</a>
+      <button class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="therapies.html">Treatments &amp; Therapies</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/919827264780?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Restore%20Physiotherapy%20Clinic." target="_blank" rel="noopener" class="btn-book">Book Appointment</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> About Us</div>
+    <h1>Expert Physiotherapy Care<br/>Focused on Recovery &amp; Mobility</h1>
+    <p>Two decades of clinical excellence, a patient-first philosophy, and the latest therapeutic technology — all under one roof in Indore.</p>
+  </div>
+
+  <!-- ABOUT INTRO -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="about-intro">
+        <div class="about-intro-img fade-up">
+          <img src="" data-img="hospital" alt="Restore Physiotherapy Clinic Indore" loading="lazy" />
+        </div>
+        <div class="fade-up fade-up-delay-2">
+          <div class="section-label">About Restore Clinic</div>
+          <h2 class="section-title">Bringing World-Class Physiotherapy to Indore</h2>
+          <p style="color:var(--text-muted); margin-bottom:1.25rem; line-height:1.8;">
+            Restore Physiotherapy Clinic was founded with a singular mission — to provide the highest standard of physiotherapy care using evidence-based methods and advanced technology. Our clinic stands as one of Indore's premier physiotherapy centres, equipped with cutting-edge machines and staffed by highly qualified specialists.
+          </p>
+          <p style="color:var(--text-muted); margin-bottom:2rem; line-height:1.8;">
+            We believe that every patient deserves personalised attention and a treatment plan built around their unique needs. From neuro rehabilitation to sports injury recovery, our multidisciplinary team works collaboratively to achieve the best possible outcomes for each individual.
+          </p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+            <div class="stat-card">
+              <div class="stat-number"><span data-target="20" data-suffix="+">0+</span></div>
+              <div class="stat-label">Years of Experience</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number"><span data-target="10000" data-suffix="+">0+</span></div>
+              <div class="stat-label">Patients Treated</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number"><span>Multiple</span></div>
+              <div class="stat-label">Advanced Machines</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number"><span data-target="100" data-suffix="%">0%</span></div>
+              <div class="stat-label">Satisfaction Rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR VALUES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header centered fade-up">
+        <div class="section-label">Our Core Values</div>
+        <h2 class="section-title">What Drives Everything We Do</h2>
+      </div>
+      <div class="about-values">
+        <div class="value-card fade-up">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h3>Patient-Centred Care</h3>
+          <p>Every decision is made with the patient's wellbeing, comfort, and long-term health as the top priority.</p>
+        </div>
+        <div class="value-card fade-up fade-up-delay-1">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3>Clinical Excellence</h3>
+          <p>We maintain the highest standards of clinical practice, underpinned by ongoing education and evidence-based therapy.</p>
+        </div>
+        <div class="value-card fade-up fade-up-delay-2">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <h3>Innovation First</h3>
+          <p>We continually invest in advanced technology and modern rehabilitation methods to stay at the forefront of physiotherapy.</p>
+        </div>
+        <div class="value-card fade-up fade-up-delay-3">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Collaborative Approach</h3>
+          <p>Our team works in close collaboration with patients, families, and referring physicians for holistic care.</p>
+        </div>
+        <div class="value-card fade-up">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Integrity &amp; Trust</h3>
+          <p>We build lasting relationships with our patients based on transparency, honesty, and genuine care.</p>
+        </div>
+        <div class="value-card fade-up fade-up-delay-1">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3>Timely Recovery</h3>
+          <p>We are committed to achieving the fastest possible recovery while ensuring long-term durability of outcomes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCTORS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header centered fade-up">
+        <div class="section-label">Meet the Doctors</div>
+        <h2 class="section-title">Expert Physiotherapists Leading Your Recovery</h2>
+        <p class="section-sub">Our doctors are highly qualified, deeply experienced, and genuinely passionate about restoring health and mobility.</p>
+      </div>
+      <div class="doctors-grid">
+
+        <!-- Dr. Rajkumari Mishra -->
+        <div class="doctor-card fade-up">
+          <div class="doctor-img-wrap">
+            <img src="" data-img="dr_rajkumari" alt="Dr. Rajkumari Mishra - Neuro Physiotherapist Indore" loading="lazy" />
+            <div class="doctor-img-overlay"></div>
+          </div>
+          <div class="doctor-info">
+            <h3>Dr. Rajkumari Mishra</h3>
+            <div class="doctor-degrees">B.P.T., M.P.T. (Neuro) | KCAT, C.M.T.</div>
+            <div class="doctor-exp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              13 Years Clinical Experience
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem; line-height:1.7;">
+              Dr. Rajkumari specialises in neuro rehabilitation, working with patients recovering from stroke, traumatic brain injuries, and complex neurological disorders. Her compassionate, patient-centred approach ensures each patient feels supported throughout their recovery.
+            </p>
+            <div class="doctor-specialties">
+              <span>Neuro Rehabilitation</span>
+              <span>Stroke Recovery</span>
+              <span>KCAT Certified</span>
+              <span>Manual Therapy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dr. Rahul Mishra -->
+        <div class="doctor-card fade-up fade-up-delay-2">
+          <div class="doctor-img-wrap">
+            <img src="" data-img="dr_rahul" alt="Dr. Rahul Mishra - Senior Physiotherapist Indore" loading="lazy" />
+            <div class="doctor-img-overlay"></div>
+          </div>
+          <div class="doctor-info">
+            <h3>Dr. Rahul Mishra</h3>
+            <div class="doctor-degrees">B.P.T., B.Sc, M.P.T. (Ortho) | C.M.T., CDNP, KCAT, MIAP</div>
+            <div class="doctor-exp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              20 Years Clinical Experience
+            </div>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem; line-height:1.7;">
+              Dr. Rahul Mishra is a highly respected orthopaedic physiotherapist with two decades of clinical experience. A member of the Indian Association of Physiotherapists (MIAP), he is known for his expertise in spinal conditions, sports injuries, and advanced manual therapy techniques.
+            </p>
+            <div class="doctor-specialties">
+              <span>Ortho Rehab</span>
+              <span>Spinal Conditions</span>
+              <span>Sports Injuries</span>
+              <span>MIAP Member</span>
+              <span>Dry Needling</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLINIC JOURNEY TIMELINE -->
+  <section class="section">
+    <div class="container" style="max-width:800px;">
+      <div class="section-header centered fade-up">
+        <div class="section-label">Our Journey</div>
+        <h2 class="section-title">Building a Legacy of Excellence</h2>
+      </div>
+      <div class="timeline fade-up">
+        <div class="timeline-item">
+          <div class="timeline-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          </div>
+          <div class="timeline-body">
+            <h4>Clinic Founded — Indore, MP</h4>
+            <p>Restore Physiotherapy Clinic was established with a mission to provide world-class physiotherapy care to the people of Indore and Central India.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="timeline-body">
+            <h4>Advanced Equipment Investment</h4>
+            <p>Acquired Class IV Laser Therapy, Tecar Therapy, and Shockwave machines — becoming one of the most technologically advanced clinics in Indore.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="timeline-body">
+            <h4>5,000+ Patients Milestone</h4>
+            <p>Celebrated the successful treatment of over 5,000 patients across neuro, ortho, paediatric, and sports rehabilitation disciplines.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="timeline-body">
+            <h4>Robotic Spinal Decompression — Indore's First</h4>
+            <p>Introduced Robotic Spinal Decompression therapy, bringing a highly specialised treatment for disc conditions to Central India for the first time.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="timeline-body">
+            <h4>Today — Growing &amp; Thriving</h4>
+            <p>Continuing to expand our expertise, technology, and team — staying committed to being Indore's most trusted physiotherapy clinic.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2 class="fade-up">Ready to Experience Expert Care?</h2>
+    <p class="fade-up fade-up-delay-1">Book your consultation with Dr. Rajkumari or Dr. Rahul Mishra today and begin your journey to recovery.</p>
+    <div class="cta-btns fade-up fade-up-delay-2">
+      <a href="https://wa.me/919827264780?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Restore%20Physiotherapy%20Clinic." target="_blank" rel="noopener" class="btn-white">Book Appointment</a>
+      <a href="tel:09827264780" class="btn-outline">Call: 098272 64780</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo"><img src="" data-img="logo" alt="Restore Physiotherapy Clinic" class="footer-logo-img" /></div>
+          <p class="footer-tagline">Expert physiotherapy care delivered with advanced technology and a compassionate, patient-focused approach in Indore.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="therapies.html">Treatments &amp; Therapies</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Neuro Rehabilitation</a></li>
+            <li><a href="services.html">Ortho Rehabilitation</a></li>
+            <li><a href="services.html">Sports Injuries</a></li>
+            <li><a href="services.html">Back &amp; Neck Pain</a></li>
+            <li><a href="services.html">Post-Surgical Rehab</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>250-A Main Rd, Nipania, Indore MP 452010</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 010 1.17 2 2 0 012 0h3a2 2 0 012 1.72 12.05 12.05 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.85a16 16 0 006.15 6.15l1.27-1.27a2 2 0 012.11-.45 12.05 12.05 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <span>098272 64780</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Restore Physiotherapy Clinic. All rights reserved.</span>
+        <span>Best Physiotherapist in Indore</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="images.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

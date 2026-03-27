@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restore Physiotherapy Clinic | Advanced Physiotherapy in Indore</title>
+  <meta name="description" content="Restore Physiotherapy Clinic in Indore offers expert pain relief, neuro rehabilitation, ortho rehab, sports injury treatment, and advanced therapy equipment." />
+  <meta name="keywords" content="Physiotherapy Clinic in Indore, Best Physiotherapist in Indore, Back Pain Treatment Indore, Neuro Rehabilitation Indore, Sports Injury Rehab Indore" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ─── HOME-SPECIFIC STYLES ─── */
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 85vh;
+      min-height: 560px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-fallback {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0e3248 0%, #1a5270 50%, #2F6D8F 100%);
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(8, 22, 40, 0.60) 0%,
+        rgba(15, 45, 72, 0.42) 55%,
+        rgba(47, 109, 143, 0.15) 100%
+      );
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 20;
+      text-align: left;
+      color: white;
+      padding: 2rem 2rem 2rem 6vw;
+      max-width: 820px;
+      width: 100%;
+      margin-left: 0;
+      margin-right: auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1.1rem;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+    .hero-title {
+      font-size: clamp(2rem, 5.5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      color: #ffffff;
+      text-shadow: 0 3px 24px rgba(0,0,0,0.75), 0 1px 8px rgba(0,0,0,0.55);
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+    .hero-title span { 
+      color: #7ec8e3; 
+      text-shadow: 0 3px 24px rgba(0,0,0,0.75), 0 1px 8px rgba(0,0,0,0.55);
+    }
+    .hero-sub {
+      font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+      color: #ffffff;
+      max-width: 580px;
+      margin: 2 0 2.25rem 0;
+      line-height: 1.8;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.75), 0 1px 5px rgba(0,0,0,0.55);
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll span { width: 1px; height: 36px; background: rgba(255,255,255,0.4); }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* STATS BANNER */
+    .stats-banner {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+    }
+    .stats-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+    .stat-item { padding: 1rem; }
+    .stat-item .num {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+    .stat-item .lbl {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-top: 0.35rem;
+    }
+    .stat-divider {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      transition: all var(--transition);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+      transform-origin: left;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 52px; height: 52px;
+      background: rgba(47,109,143,0.1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .service-icon svg { width: 26px; height: 26px; color: var(--primary); }
+    .service-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .service-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* WHY US */
+    .why-us-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .why-us-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-hover);
+    }
+    .why-us-img img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+    }
+    .why-us-img-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      background: white;
+      border-radius: var(--radius);
+      padding: 1rem 1.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .why-us-img-badge .big { font-size: 2rem; font-weight: 800; color: var(--primary); }
+    .why-us-img-badge .sml { font-size: 0.82rem; color: var(--text-muted); font-weight: 600; }
+
+    .why-features { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 2rem; }
+    .why-feature {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.5rem;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+    .why-feature:hover { transform: translateX(6px); box-shadow: var(--shadow); }
+    .why-feature-icon {
+      width: 48px; height: 48px; flex-shrink: 0;
+      background: rgba(47,109,143,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .why-feature-icon svg { width: 22px; height: 22px; color: var(--primary); }
+    .why-feature h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .why-feature p { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* EQUIPMENT PREVIEW */
+    .equipment-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .equip-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+    .equip-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+    .equip-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .equip-card-body { padding: 1rem 1.25rem; }
+    .equip-card-body h4 { font-size: 0.9rem; font-weight: 700; }
+    .equip-card-body p { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.3rem; }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, #1a4a65 100%);
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 300px; height: 300px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: white;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      position: relative; z-index: 1;
+    }
+    .cta-section p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      position: relative; z-index: 1;
+    }
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      background: white;
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: all var(--transition);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+
+    @media (max-width: 900px) {
+      .why-us-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .equipment-strip { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-divider { display: none; }
+    }
+    @media (max-width: 500px) {
+      .equipment-strip { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    }
+  
+    /* ── ADVANCED MANUAL TECHNIQUES ── */
+    .techniques-section { background: var(--white); }
+
+    .techniques-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .technique-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.38s cubic-bezier(0.4,0,0.2,1),
+                  box-shadow 0.38s cubic-bezier(0.4,0,0.2,1);
+      position: relative;
+    }
+    .technique-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--soft-blue));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .technique-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 16px 48px rgba(47,109,143,0.15);
+    }
+    .technique-card:hover::before { transform: scaleX(1); }
+
+    /* Image wrapper — placeholder until real image added */
+    .technique-img-wrap {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #eaf2f7 0%, #d4e9f5 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .technique-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .technique-img-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+    .technique-img-placeholder svg {
+      width: 90px;
+      height: 90px;
+      opacity: 0.75;
+    }
+
+    /* Card body */
+    .technique-body { padding: 1.75rem 1.75rem 1.75rem; }
+    .technique-number {
+      font-size: 3rem;
+      font-weight: 800;
+      color: rgba(47,109,143,0.07);
+      line-height: 1;
+      margin-bottom: -0.5rem;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.04em;
+    }
+    .technique-body h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .technique-body p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+    .technique-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .technique-tags span {
+      padding: 0.25rem 0.7rem;
+      background: rgba(47,109,143,0.08);
+      color: var(--primary);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 1024px) {
+      .techniques-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .techniques-grid { grid-template-columns: 1fr; }
+    }
+
+</style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="" data-img="logo" alt="Restore Physiotherapy Clinic Logo" class="nav-logo-img" />
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="therapies.html">Treatments & Therapies</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="https://wa.me/919827264780?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Restore%20Physiotherapy%20Clinic." target="_blank" rel="noopener" class="btn-book">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Book Appointment
+      </a>
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="therapies.html">Treatments & Therapies</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/919827264780?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Restore%20Physiotherapy%20Clinic." target="_blank" rel="noopener" class="btn-book">Book Appointment</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-fallback"></div>
+    <video class="hero-video" autoplay muted loop playsinline poster="" data-poster="hospital">
+      <source src="hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      
+      <h1 class="hero-title">
+        Advanced Physiotherapy Care<br/>for <span>Pain Relief</span> &amp; Recovery
+      </h1>
+      <p class="hero-sub">
+        Restore Physiotherapy Clinic in Indore offers expert rehabilitation, pain management, and advanced therapy solutions for faster recovery and long-term health.
+      </p>
+      <div class="hero-btns">
+        <a href="https://wa.me/919827264780?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Restore%20Physiotherapy%20Clinic." target="_blank" rel="noopener" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Book Appointment
+        </a>
+        <a href="tel:09827264780" class="btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.95a16 16 0 006.15 6.15l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call Now
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      Scroll Down
+      <span></span>
+    </div>
+  </section>
+
+  <!-- STATS BANNER -->
+  <div class="stats-banner">
+    <div class="stats-grid">
+      <div class="stat-item fade-up">
+        <div class="num"><span data-target="20" data-suffix="+">0+</span></div>
+        <div class="lbl">Years Experience</div>
+      </div>
+      <div class="stat-item fade-up fade-up-delay-1">
+        <div class="num"><span data-target="10000" data-suffix="+">0+</span></div>
+        <div class="lbl">Patients Treated</div>
+      </div>
+      <div class="stat-item fade-up fade-up-delay-2">
+        <div class="num"><span>Multiple</span></div>
+        <div class="lbl">Advanced Machines</div>
+      </div>
+      <div class="stat-item fade-up fade-up-delay-3">
+        <div class="num"><span data-target="100" data-suffix="%">0%</span></div>
+        <div class="lbl">Patient Satisfaction</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header centered fade-up">
+        <div class="section-label">Our Specialisations</div>
+        <h2 class="section-title">Comprehensive Rehabilitation Services</h2>
+        <p class="section-sub">Expert care across a wide range of physiotherapy disciplines delivered by specialists with decades of clinical experience.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+          </div>
+          <h3>Neuro Rehabilitation</h3>
+          <p>Stroke recovery, Parkinson's, multiple sclerosis, and traumatic brain injury rehabilitation.</p>
+        </div>
+        <div class="service-card fade-up fade-up-delay-1">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22V12m0-4V2M4.93 4.93l5.66 5.66M4.93 19.07l5.66-5.66M19.07 4.93l-5.66 5.66M19.07 19.07l-5.66-5.66"/></svg>
+          </div>
+          <h3>Ortho Rehabilitation</h3>
+          <p>Joint replacement recovery, fracture rehabilitation, arthritis, and musculoskeletal disorders.</p>
+        </div>
+        <div class="service-card fade-up fade-up-delay-2">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>
+          </div>
+          <h3>Pediatric Rehabilitation</h3>
+          <p>Developmental delay, cerebral palsy, muscular dystrophy, and childhood neurological conditions.</p>
+        </div>
+        <div class="service-card fade-up fade-up-delay-3">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0016.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 002 8.5c0 2.3 1.5 4.05 3 5.5l7 7 7-7z"/></svg>
+          </div>
+          <h3>Post-Surgical Rehab</h3>
+          <p>Structured recovery programs after orthopaedic, spinal, and joint surgeries for optimal outcomes.</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Geriatric Rehabilitation</h3>
+          <p>Mobility, balance, and strength restoration for elderly patients, fall prevention programmes.</p>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:2.5rem;">
+        <a href="services.html" class="btn-primary">View All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section">
+    <div class="container">
+      <div class="why-us-layout">
+        <div class="why-us-img fade-up">
+          <img src="" data-img="hospital" alt="Restore Physiotherapy Clinic Building, Indore" loading="lazy" />
+          <div class="why-us-img-badge">
+            <div class="big">20+</div>
+            <div class="sml">Years of<br/>Clinical Excellence</div>
+          </div>
+        </div>
+        <div class="fade-up fade-up-delay-2">
+          <div class="section-label">Why Choose Us</div>
+          <h2 class="section-title">The Restore Difference — Science-Led, Patient-First</h2>
+          <p class="section-sub">We combine clinical expertise with the latest therapeutic technology to deliver faster, more effective recovery outcomes for every patient.</p>
+          <div class="why-features">
+            <div class="why-feature">
+              <div class="why-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <div>
+                <h4>13–20 Years Clinical Expertise</h4>
+                <p>Our team of specialist physiotherapists brings extensive hands-on clinical experience.</p>
+              </div>
+            </div>
+            <div class="why-feature">
+              <div class="why-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div>
+                <h4>Advanced Therapy Equipment</h4>
+                <p>7 state-of-the-art machines including Class IV Laser, Tecar Therapy, and Robotic Decompression.</p>
+              </div>
+            </div>
+            <div class="why-feature">
+              <div class="why-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+              </div>
+              <div>
+                <h4>Personalised Treatment Plans</h4>
+                <p>Every patient receives a customised, evidence-based rehabilitation programme tailored to their needs.</p>
+              </div>
+            </div>
+            <div class="why-feature">
+              <div class="why-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <div>
+                <h4>Modern Rehabilitation Approach</h4>
+                <p>We integrate advanced modalities with hands-on therapy for comprehensive, modern rehabilitation.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ADVANCED MANUAL TECHNIQUES -->
+  <section class="section techniques-section">
+    <div class="container">
+      <div class="section-header centered fade-up">
+        <div class="section-label">Hands-On Expertise</div>
+        <h2 class="section-title">Advanced Manual Therapy Techniques</h2>
+        <p class="section-sub">Our therapists are trained in the world's most effective hands-on physiotherapy techniques — delivering precise, evidence-based treatment for faster and lasting recovery.</p>
+      </div>
+      <div class="techniques-grid">
+
+        <!-- Maitland -->
+        <div class="technique-card fade-up">
+          <div class="technique-img-wrap">
+            <div class="technique-img-placeholder" id="timg-maitland">
+              <img src="Maitland technique.jpg" alt="Maitland Technique" />
+                <circle cx="40" cy="40" r="38" stroke="#6FA9C6" stroke-width="1.5" stroke-dasharray="4 3"/>
+                <path d="M25 40c0-8.28 6.72-15 15-15s15 6.72 15 15-6.72 15-15 15" stroke="#2F6D8F" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="40" cy="40" r="6" fill="#2F6D8F" opacity="0.15"/>
+                <circle cx="40" cy="40" r="3" fill="#2F6D8F"/>
+                <path d="M40 25v-6M40 61v-6M55 40h6M19 40h6" stroke="#6FA9C6" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="technique-body">
+            <div class="technique-number">01</div>
+            <h3>Maitland Technique</h3>
+            <p>A globally recognised passive joint mobilisation method using graded oscillatory movements to restore joint range, reduce pain, and improve function — applied with precision at specific vertebral and peripheral joints.</p>
+            <div class="technique-tags">
+              <span>Joint Mobilisation</span>
+              <span>Spinal Pain</span>
+              <span>Graded Oscillation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mulligan -->
+        <div class="technique-card fade-up fade-up-delay-1">
+          <div class="technique-img-wrap">
+            <div class="technique-img-placeholder" id="timg-mulligan">
+              <img src="Mulligan technique.jpg" alt="Mulligan technique" />
+                <path d="M20 55 Q35 20 60 30" stroke="#2F6D8F" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M30 25 L20 55 L50 58" stroke="#6FA9C6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="20" cy="55" r="4" fill="#2F6D8F"/>
+                <circle cx="60" cy="30" r="4" fill="#6FA9C6"/>
+                <path d="M54 24 L66 36" stroke="#2F6D8F" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="technique-body">
+            <div class="technique-number">02</div>
+            <h3>Mulligan Technique</h3>
+            <p>Combines sustained natural apophyseal glides (SNAGs) with active patient movement to achieve immediate pain-free motion. Highly effective for spinal and peripheral joint dysfunctions with rapid, lasting results.</p>
+            <div class="technique-tags">
+              <span>SNAGs</span>
+              <span>NAGs</span>
+              <span>Pain-Free Movement</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- McKenzie -->
+        <div class="technique-card fade-up fade-up-delay-2">
+          <div class="technique-img-wrap">
+            <div class="technique-img-placeholder" id="timg-mckenzie">
+              <img src="McKenzie technique.jpg" alt="McKenzie technique" />
+                <rect x="20" y="35" width="40" height="10" rx="5" fill="#2F6D8F" opacity="0.12"/>
+                <path d="M20 40 Q40 20 60 40" stroke="#2F6D8F" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M20 40 Q40 60 60 40" stroke="#6FA9C6" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 2"/>
+                <circle cx="40" cy="28" r="3.5" fill="#2F6D8F"/>
+                <circle cx="40" cy="52" r="3.5" fill="#6FA9C6"/>
+                <path d="M40 22 L40 16M40 58 L40 64" stroke="#2F6D8F" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="technique-body">
+            <div class="technique-number">03</div>
+            <h3>McKenzie Technique</h3>
+            <p>A mechanical diagnosis and therapy (MDT) system using directional preference exercises to centralise and eliminate disc-related pain. Empowers patients with self-treatment strategies for long-term independence.</p>
+            <div class="technique-tags">
+              <span>MDT</span>
+              <span>Disc Pain</span>
+              <span>Centralisation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Joint Mobilization -->
+        <div class="technique-card fade-up">
+          <div class="technique-img-wrap">
+            <div class="technique-img-placeholder" id="timg-joint">
+              <img src="Joint mobilization and Manipulation techniques.jpg" alt="Joint mobilization & Manipulation techniques" />
+                <circle cx="30" cy="40" r="14" stroke="#2F6D8F" stroke-width="2"/>
+                <circle cx="50" cy="40" r="14" stroke="#6FA9C6" stroke-width="2"/>
+                <path d="M36 33 L44 47M36 47 L44 33" stroke="#2F6D8F" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="30" cy="40" r="4" fill="#2F6D8F" opacity="0.2"/>
+                <circle cx="50" cy="40" r="4" fill="#6FA9C6" opacity="0.2"/>
+              </svg>
+            </div>
+          </div>
+          <div class="technique-body">
+            <div class="technique-number">04</div>
+            <h3>Joint Mobilization &amp; Manipulation</h3>
+            <p>Skilled passive techniques ranging from gentle Grade I–IV mobilisations to high-velocity low-amplitude (HVLA) manipulations — restoring joint play, reducing stiffness, and relieving neurological symptoms.</p>
+            <div class="technique-tags">
+              <span>HVLA</span>
+              <span>Grade I–IV</span>
+              <span>Joint Stiffness</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Tissue -->
+        <div class="technique-card fade-up fade-up-delay-1">
+          <div class="technique-img-wrap">
+            <div class="technique-img-placeholder" id="timg-soft">
+              <img src="Soft tissue mobilization technique.jpg" alt="Soft tissue mobilization technique" />
+                <path d="M15 50 Q25 25 40 30 Q55 35 65 20" stroke="#2F6D8F" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M15 60 Q25 35 40 40 Q55 45 65 30" stroke="#6FA9C6" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 2"/>
+                <circle cx="40" cy="30" r="5" fill="#2F6D8F" opacity="0.2"/>
+                <circle cx="40" cy="40" r="5" fill="#6FA9C6" opacity="0.15"/>
+                <path d="M36 26 Q40 20 44 26" stroke="#2F6D8F" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="technique-body">
+            <div class="technique-number">05</div>
+            <h3>Soft Tissue Mobilization</h3>
+            <p>Targeted hands-on techniques including myofascial release, trigger point therapy, and cross-friction massage to break down scar tissue, reduce muscle tightness, and restore normal tissue extensibility.</p>
+            <div class="technique-tags">
+              <span>Myofascial Release</span>
+              <span>Trigger Points</span>
+              <span>Scar Tissue</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MET -->
+        <div class="technique-card fade-up fade-up-delay-2">
+          <div class="technique-img-wrap">
+            <div class="technique-img-placeholder" id="timg-met">
+              <img src="Muscle energy techniques.jpg" alt="Muscle energy techniques" />
+                <path d="M25 55 L40 25 L55 55" stroke="#2F6D8F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M30 45 L50 45" stroke="#6FA9C6" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="40" cy="25" r="4" fill="#2F6D8F" opacity="0.2"/>
+                <circle cx="25" cy="55" r="4" fill="#6FA9C6" opacity="0.2"/>
+                <circle cx="55" cy="55" r="4" fill="#6FA9C6" opacity="0.2"/>
+                <circle cx="40" cy="25" r="2" fill="#2F6D8F"/>
+              </svg>
+            </div>
+          </div>
+          <div class="technique-body">
+            <div class="technique-number">06</div>
+            <h3>Muscle Energy Techniques</h3>
+            <p>Post-isometric relaxation and reciprocal inhibition methods using the patient's own muscle contractions to lengthen tight muscles, restore joint range of motion, and correct musculoskeletal imbalances.</p>
+            <div class="technique-tags">
+              <span>Post-Isometric</span>
+              <span>Muscle Lengthening</span>
+              <span>ROM Restoration</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end techniques-grid -->
+    </div>
+  </section>
+  <!-- END ADVANCED MANUAL TECHNIQUES -->
+
+  <!-- EQUIPMENT PREVIEW -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header centered fade-up">
+        <div class="section-label">Advanced Technology</div>
+        <h2 class="section-title">Cutting-Edge Therapy Equipment</h2>
+        <p class="section-sub">We invest in the most advanced physiotherapy technology available to deliver superior treatment outcomes.</p>
+      </div>
+      <div class="equipment-strip">
+        <div class="equip-card fade-up">
+          <img src="" data-img="laser" alt="Class IV Laser Therapy Machine" loading="lazy" />
+          <div class="equip-card-body">
+            <h4>Class IV Laser Therapy</h4>
+            <p>Deep tissue healing with photobiomodulation technology.</p>
+          </div>
+        </div>
+        <div class="equip-card fade-up fade-up-delay-1">
+          <img src="" data-img="tecar" alt="Tecar Therapy Machine" loading="lazy" />
+          <div class="equip-card-body">
+            <h4>Tecar Therapy</h4>
+            <p>Capacitive & resistive energy transfer for rapid recovery.</p>
+          </div>
+        </div>
+        <div class="equip-card fade-up fade-up-delay-2">
+          <img src="" data-img="shockwave" alt="Shockwave Therapy Machine" loading="lazy" />
+          <div class="equip-card-body">
+            <h4>Shockwave Therapy</h4>
+            <p>Non-invasive acoustic pulse therapy for chronic pain relief.</p>
+          </div>
+        </div>
+        <div class="equip-card fade-up fade-up-delay-3">
+          <img src="" data-img="robotic" alt="Robotic Spinal Decompression" loading="lazy" />
+          <div class="equip-card-body">
+            <h4>Robotic Spinal Decompression</h4>
+            <p>Computer-controlled spinal decompression for disc conditions.</p>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:2.5rem;">
+        <a href="therapies.html" class="btn-primary">Explore All Therapies</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2 class="fade-up">Start Your Recovery Journey Today</h2>
+    <p class="fade-up fade-up-delay-1">Book a consultation with our specialist physiotherapists and take the first step towards a pain-free, active life.</p>
+    <div class="cta-btns fade-up fade-up-delay-2">
+      <a href="https://wa.me/919827264780?text=Hello%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Restore%20Physiotherapy%20Clinic." target="_blank" rel="noopener" class="btn-white">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Book Appointment
+      </a>
+      <a href="tel:09827264780" class="btn-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.95a16 16 0 006.15 6.15l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Call: 098272 64780
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo"><img src="" data-img="logo" alt="Restore Physiotherapy Clinic" class="footer-logo-img" /></div>
+          <p class="footer-tagline">Expert physiotherapy care delivered with advanced technology and compassionate, patient-focused approach in the heart of Indore.</p>
+          <div style="margin-top:1.5rem; display:flex; gap:0.75rem;">
+            <a href="https://www.facebook.com/p/Restore-Physiotherapy-Clinic-100069714570958/" style="width:36px;height:36px;background:rgba(47,109,143,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--primary);transition:background 0.3s;" onmouseover="this.style.background='rgba(47,109,143,0.2)'" onmouseout="this.style.background='rgba(47,109,143,0.1)'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/restore_physiotherapy_clinic_/" style="width:36px;height:36px;background:rgba(47,109,143,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--primary);transition:background 0.3s;" onmouseover="this.style.background='rgba(47,109,143,0.2)'" onmouseout="this.style.background='rgba(47,109,143,0.1)'">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="therapies.html">Treatments &amp; Therapies</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html">Neuro Rehabilitation</a></li>
+            <li><a href="services.html">Ortho Rehabilitation</a></li>
+            <li><a href="services.html">Back &amp; Neck Pain</a></li>
+            <li><a href="services.html">Sports Injuries</a></li>
+            <li><a href="services.html">Post-Surgical Rehab</a></li>
+            <li><a href="services.html">PIVD &amp; Disc Care</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>250-A, Main Rd, Opp. Hotel Jardin, Near Asha Academy, Tulsi Nagar, Nipania, Indore, MP 452010</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.0 1.17 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.85a16 16 0 006.15 6.15l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <span>098272 64780 / 097552 27666</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Mon–Sat: 10AM–1PM, 4PM–8PM<br/>Sunday: Closed</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Restore Physiotherapy Clinic. All rights reserved.</span>
+        <span>Best Physiotherapist in Indore | Physiotherapy Clinic Indore</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="images.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
